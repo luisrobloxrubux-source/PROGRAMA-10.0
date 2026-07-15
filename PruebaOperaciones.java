@@ -2,17 +2,20 @@
 
 class Operaciones {
 
-    public int sumar(int numero1, int numero2) {
-        int suma = numero1 + numero2;
-        return suma;
+    public void mostrarDatos(int numero) {
+        System.out.println("Parámetros: int");
     }
 
-    public int restar(int numero1, int numero2) {
-        return numero1 - numero2;
+    public void mostrarDatos(String texto) {
+        System.out.println("Parámetros: String");
     }
 
-    public int cuadrado(int numero) {
-        return numero * numero;
+    public void mostrarDatos(int numero, String texto) {
+        System.out.println("Parámetros: int, String");
+    }
+
+    public void mostrarDatos(String texto, int numero) {
+        System.out.println("Parámetros: String, int");
     }
 }
 
@@ -22,11 +25,9 @@ public class PruebaOperaciones {
 
         Operaciones operaciones = new Operaciones();
 
-        int resultado = operaciones.sumar(10, 20);
-        System.out.println(resultado);
-
-        System.out.println(operaciones.restar(30, 9));
-
-        System.out.println(operaciones.cuadrado(11));
+        operaciones.mostrarDatos(99);
+        operaciones.mostrarDatos("Hola");
+        operaciones.mostrarDatos(99, "Hola");
+        operaciones.mostrarDatos("Hola", 99);
     }
 }
