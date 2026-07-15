@@ -2,13 +2,17 @@
 
 class Operaciones {
 
-    public void concatenarTexto(String texto1, String texto2) {
-        System.out.println(texto1 + " " + texto2);
+    public int sumar(int numero1, int numero2) {
+        int suma = numero1 + numero2;
+        return suma;
     }
 
-    public void imprimirSuma(int entero1, int entero2) {
-        int suma = entero1 + entero2;
-        System.out.println("Suma: " + suma);
+    public int restar(int numero1, int numero2) {
+        return numero1 - numero2;
+    }
+
+    public int cuadrado(int numero) {
+        return numero * numero;
     }
 }
 
@@ -18,10 +22,11 @@ public class PruebaOperaciones {
 
         Operaciones operaciones = new Operaciones();
 
-        operaciones.concatenarTexto("Primero", "Segundo");
-        operaciones.concatenarTexto("Tercero", "Cuarto");
+        int resultado = operaciones.sumar(10, 20);
+        System.out.println(resultado);
 
-        operaciones.imprimirSuma(10, 20);
-        operaciones.imprimirSuma(30, 40);
+        System.out.println(operaciones.restar(30, 9));
+
+        System.out.println(operaciones.cuadrado(11));
     }
 }
