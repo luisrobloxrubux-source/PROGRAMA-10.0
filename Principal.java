@@ -1,11 +1,17 @@
 
 
+class Persona {
+
+    public int edad;
+
+} // Fin de la clase Persona
+
 class Acciones {
 
-    public static void imprimeIncremento(int valor) {
-        valor = valor + 10;
-        System.out.println("Valor: " + valor);
-    } // Fin del método imprimeIncremento
+    public static void imprimeCambioDeEdad(Persona persona) {
+        persona.edad = persona.edad + 10;
+        System.out.println("Edad: " + persona.edad);
+    } // Fin del método imprimeCambioDeEdad
 
 } // Fin de la clase Acciones
 
@@ -13,13 +19,15 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        int variable1 = 50;
+        Persona objeto1 = new Persona();
 
-        System.out.println("Variable (antes): " + variable1);
+        objeto1.edad = 15;
 
-        Acciones.imprimeIncremento(variable1);
+        System.out.println("Edad (antes): " + objeto1.edad);
 
-        System.out.println("Variable (después): " + variable1);
+        Acciones.imprimeCambioDeEdad(objeto1);
+
+        System.out.println("Edad (después): " + objeto1.edad);
 
     } // Fin del método main
 
