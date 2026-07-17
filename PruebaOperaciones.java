@@ -2,32 +2,28 @@
 
 class Operaciones {
 
-    public void mostrarDatos(int numero) {
-        System.out.println("Parámetros: int");
-    }
+    public static int sumar(int numero1, int numero2) {
+        return numero1 + numero2;
+    } // Fin del método sumar
 
-    public void mostrarDatos(String texto) {
-        System.out.println("Parámetros: String");
-    }
+    public static int restar(int numero1, int numero2) {
+        return numero1 - numero2;
+    } // Fin del método restar
 
-    public void mostrarDatos(int numero, String texto) {
-        System.out.println("Parámetros: int, String");
-    }
-
-    public void mostrarDatos(String texto, int numero) {
-        System.out.println("Parámetros: String, int");
-    }
-}
+} // Fin de la clase Operaciones
 
 public class PruebaOperaciones {
 
     public static void main(String[] args) {
 
-        Operaciones operaciones = new Operaciones();
+        Operaciones obj1 = new Operaciones();
 
-        operaciones.mostrarDatos(99);
-        operaciones.mostrarDatos("Hola");
-        operaciones.mostrarDatos(99, "Hola");
-        operaciones.mostrarDatos("Hola", 99);
-    }
-}
+        System.out.println(obj1.sumar(10, 20));
+        System.out.println(Operaciones.sumar(10, 20));
+
+        System.out.println(obj1.restar(30, 20));
+        System.out.println(Operaciones.restar(30, 20));
+
+    } // Fin del método main
+
+} // Fin de la clase PruebaOperaciones
