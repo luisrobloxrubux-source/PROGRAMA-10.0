@@ -1,64 +1,60 @@
 
 
-class Persona {
+class Alfa {
+    public int campoPublic;
+    int campoDefault;
+    protected int campoProtected;
+    private int campoPrivate;
 
-    private String nombre;
-    private String apellidoPaterno;
-    private String apellidoMaterno;
+    public Alfa() {
+        campoPublic = 0;
+        campoDefault = 0;
+        campoProtected = 0;
+        campoPrivate = 0;
+    }
+}
 
-    public Persona() {
-        nombre = "";
-        apellidoPaterno = "";
-        apellidoMaterno = "";
-    } // Fin del constructor
+class Beta {
+    public Beta() {
+        Alfa alfa = new Alfa();
+        alfa.campoPublic = 0;
+        alfa.campoDefault = 0;
+        alfa.campoProtected = 0;
+        // alfa.campoPrivate = 0; /* No se tiene acceso */
+    }
+}
 
-    public String getNombre() {
-        return nombre;
-    } // Fin del método getNombre
+class AlfaSub extends Alfa {
+    public AlfaSub() {
+        Alfa alfa = new Alfa();
+        alfa.campoPublic = 0;
+        // alfa.campoDefault = 0; /* No se tiene acceso en paquete original */
+        // alfa.campoProtected = 0; /* No se tiene acceso en paquete original */
+        // alfa.campoPrivate = 0; /* No se tiene acceso */
 
-    public void setNombre(String pNombre) {
-        nombre = pNombre;
-    } // Fin del método setNombre
+        campoPublic = 0;
+        // campoDefault = 0; /* No se tiene acceso */
+        campoProtected = 0;
+        // campoPrivate = 0; /* No se tiene acceso */
+    }
+}
 
-    public String getApellidoPaterno() {
-        return apellidoPaterno;
-    } // Fin del método getApellidoPaterno
-
-    public void setApellidoPaterno(String pApellidoPaterno) {
-        apellidoPaterno = pApellidoPaterno;
-    } // Fin del método setApellidoPaterno
-
-    public String getApellidoMaterno() {
-        return apellidoMaterno;
-    } // Fin del método getApellidoMaterno
-
-    public void setApellidoMaterno(String pApellidoMaterno) {
-        apellidoMaterno = pApellidoMaterno;
-    } // Fin del método setApellidoMaterno
-
-    public void imprimirCampos() {
-        System.out.println(
-            "Persona:" +
-            "\n\tnombre = " + nombre +
-            "\n\tapellidoPaterno = " + apellidoPaterno +
-            "\n\tapellidoMaterno = " + apellidoMaterno
-        );
-    } // Fin del método imprimirCampos
-
-} // Fin de la clase Persona
+class Gama {
+    public Gama() {
+        Alfa alfa = new Alfa();
+        alfa.campoPublic = 0;
+        // alfa.campoDefault = 0; /* No se tiene acceso */
+        // alfa.campoProtected = 0; /* No se tiene acceso */
+        // alfa.campoPrivate = 0; /* No se tiene acceso */
+    }
+}
 
 public class Principal {
-
     public static void main(String[] args) {
-
-        Persona persona1 = new Persona();
-
-        persona1.setNombre("Alberto");
-        persona1.setApellidoPaterno("Arenas");
-        persona1.setApellidoMaterno("Aguirre");
-
-        persona1.imprimirCampos();
-
-    } // Fin del método main
-
-} // Fin de la clase Principal
+        Alfa alfa = new Alfa();
+        Beta beta = new Beta();
+        AlfaSub sub = new AlfaSub();
+        Gama gama = new Gama();
+        System.out.println("Código compilado con éxito.");
+    }
+}
